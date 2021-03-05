@@ -40,6 +40,11 @@ export class LineChartComponent implements OnInit {
             label: "North America",
             borderColor: "#c45850",
             fill: false
+          }, {
+            label: "India",
+            data: [4500,7000,4000,4506,2034,1200,300,6000,6706,8066],
+            borderColor: "#c4ff50",
+            fill: true
           }
         ]
       },
