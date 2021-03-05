@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
+import io from 'socket.io-client';
+
+const socket = io('http://localhost:3000');
 
 @Component({
   selector: 'app-bar-chart',
@@ -8,10 +11,33 @@ import { Chart } from 'chart.js';
 })
 export class BarChartComponent implements OnInit {
 
+  chart: any;
+
   constructor() { }
 
   ngOnInit() {
-    let chart = new Chart('barChart', {
+    this._initializeChart();
+
+    socket.on('data1', (data) => {
+      data = data.splice(0, 5);
+      this._updateChartData(data, 0);
+    })
+
+    socket.on('data2', (data) => {
+      data = data.splice(0, 5);
+      this._updateChartData(data, 1);
+    })
+
+    
+  }
+
+  private _updateChartData(data, index) {
+    this.chart.data.datasets[index].data = data;
+    this.chart.update();
+  }
+
+  private _initializeChart() {
+    this.chart = new Chart('barChart', {
       type: 'bar',
       data: {
         labels: ["1900", "1950", "1999", "2050"], // x-axix
