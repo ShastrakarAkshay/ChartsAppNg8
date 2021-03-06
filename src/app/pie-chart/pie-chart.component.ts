@@ -38,12 +38,12 @@ export class PieChartComponent implements OnInit {
       data: {
         labels: ["Africa", "Asia", "Europe", "Latin America", "North America", "India"],
         datasets: [{
-          label: "Population (millions)",
+          label: "Population 1 (millions)",
           backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#8ef56e"],
           data: [2478,5267,734,784,433,500]
         },
         {
-          label: "Population (millions)",
+          label: "Population 2 (millions)",
           backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#8ef56e"],
           data: [248,527,734,784,433,500].reverse()
         }]
