@@ -33,6 +33,8 @@ function sendData(data) {
         x = !x;
     }
 
+    console.log(x);
+
     setTimeout(() => {
         sendData(data);
     }, 3000);
